@@ -11,7 +11,7 @@ const getGoal = (request, response) => {
 }
 
 const updateGoal = (request, response) => {
-    const {target, user_id, name, balance,} = request.body;
+    const {target, user_id, name, balance,id,} = request.body;
 }
 
 const deleteGoal = (request, response) => {
