@@ -41,7 +41,7 @@ const getUser = (request, response) => {
   UserService.getUser(id)
     .then(data => {
       response.status(200).json({
-        msg: `Successfully retrieved data from user #${user_id}`,
+        msg: `Successfully retrieved data from user #${id}`,
         data
       });
     })
@@ -69,7 +69,8 @@ const updateUser = (request, response) => {
     email,
     firebase_token,
     avatar_url,
-    income
+    income,
+    id
   )
     .then(data => {
       response.status(200).json({
