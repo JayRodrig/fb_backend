@@ -1,5 +1,5 @@
 // NPM MODULES
-const express = require('express');
+const express = require("express");
 
 // LOCAL MODULES
 const {StatementService,} = require('../services/statement');
@@ -75,16 +75,16 @@ const deleteStatement = (request, response) => {
 
 // FUNCTION THAT RETURNS ROUTER
 const StatementRouter = () => {
-    const router = express.Router()
+  const router = express.Router();
 
-    router.post('/', createStatement);
-    router.get('/:id', getStatement);
-    router.put('/', updateStatement);
-    router.delete('/', deleteStatement);
+  router.post("/", createStatement);
+  router.get("/:id", getStatement);
+  router.put("/", updateStatement);
+  router.delete("/", deleteStatement);
 
-    return router;
-}
+  return router;
+};
 
 module.exports = {
-    StatementRouter,
-}
+  StatementRouter
+};
