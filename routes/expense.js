@@ -1,5 +1,5 @@
 // NPM MODULES
-const express = require('express');
+const express = require("express");
 
 // ROUTE FUNCTIONS
 const createExpense = (request, response) => {
@@ -21,21 +21,21 @@ const updateExpense = (request, response) => {
 }
 
 const deleteExpense = (request, response) => {
-    const {id,} = request.body;
-}
+  const { id } = request.body;
+};
 
 // FUNCTION THAT RETURNS ROUTER
 const ExpenseRouter = () => {
-    const router = express.Router()
+  const router = express.Router();
 
-    router.post('/', createExpense);
-    router.get('/:id', getExpense);
-    router.put('/', updateExpense);
-    router.delete('/', deleteExpense);
+  router.post("/", createExpense);
+  router.get("/:id", getExpense);
+  router.put("/", updateExpense);
+  router.delete("/", deleteExpense);
 
-    return router;
-}
+  return router;
+};
 
 module.exports = {
-    ExpenseRouter,
-}
+  ExpenseRouter
+};
