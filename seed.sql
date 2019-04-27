@@ -26,9 +26,9 @@ CREATE TABLE statements
 CREATE TABLE goals
 (
   id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
   target INT NOT NULL,
   user_id INT REFERENCES users(id),
-  name VARCHAR NOT NULL,
   balance INT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -36,6 +36,7 @@ CREATE TABLE goals
 CREATE TABLE expenses
 (
   id SERIAL PRIMARY KEY,
+  name VARCHAR NOT NULL,
   fixed boolean,
   amount INT,
   user_id INT REFERENCES users(id),
