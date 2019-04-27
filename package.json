@@ -1,0 +1,22 @@
+{
+  "name": "fb_backend",
+  "version": "1.0.0",
+  "description": "A financial app to keep track of expenses, set goals and meet them!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start:local": "$(npm bin)/nodemon index.js"
+  },
+  "author": "J",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.3.0",
+    "pg-promise": "^8.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.11"
+  }
+}
