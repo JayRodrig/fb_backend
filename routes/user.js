@@ -11,7 +11,7 @@ const getUser = (request, response) => {
 }
 
 const updateUser = (request, response) => {
-    const {first_name, last_name, email, firebase_token, avatar_url, income} = request.body;
+    const {first_name, last_name, email, firebase_token, avatar_url, income, id} = request.body;
 }
 
 const deleteUser = (request, response) => {
