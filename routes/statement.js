@@ -15,6 +15,7 @@ const createStatement = (request, response) => {
             });
         })
         .catch(e => {
+            console.log(e);
             response.status(400).json({
                 'msg': `Something went wrong.`,
                 e,
@@ -39,9 +40,43 @@ const getStatement = (request, response) => {
         });
 }
 
+const getUserStatements = (request, response) => {
+    const {id,} = request.params;
+    StatementService.getUserStatements(id)
+        .then(data => {
+            response.status(200).json({
+                'msg': `Successfully retrieved all statements for user #${id}.`,
+                data,
+            });
+        })
+        .catch(e => {
+            response.status(400).json({
+                'msg': `Something went wrong.`,
+                e,
+            });
+        });
+}
+
+const getStatementsAndExpenses = (request, response) => {
+    const {id,} = request.params;
+    StatementService.getStatementsAndExpenses(id)
+        .then(data => {
+            response.status(200).json({
+                'msg': `Successfully retrieved statement and expense info.`,
+                data,
+            });
+        })
+        .catch(e => {
+            response.status(400).json({
+                'msg': `Something went wrong.`,
+                e,
+            });
+        });
+}
+
 const updateStatement = (request, response) => {
-    const {name, user_id} = request.body;
-    StatementService.updateStatement(name, user_id)
+    const {name, id} = request.body;
+    StatementService.updateStatement(name, id)
         .then(data => {
             response.status(200).json({
                 'msg': `Successfully updated statement.`,
@@ -79,6 +114,8 @@ const StatementRouter = () => {
 
   router.post("/", createStatement);
   router.get("/:id", getStatement);
+  router.get("/all/:id", getUserStatements);
+  router.get("/detailed/:id", getStatementsAndExpenses);
   router.put("/", updateStatement);
   router.delete("/", deleteStatement);
 

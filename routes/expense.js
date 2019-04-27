@@ -38,6 +38,7 @@ const getExpense = (request, response) => {
         });
       });
 }
+
 const getAllExpenses = async (request,response) => {
     const {user_id, statement_id,} = request.params;
     try {

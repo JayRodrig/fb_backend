@@ -15,6 +15,7 @@ const createGoal = (request, response) => {
       });
     })
     .catch(e => {
+      console.log(e);
       response.status(400).json({
         msg: `Something went wrong.`,
         e
@@ -41,7 +42,7 @@ const getGoal = (request, response) => {
 
 const updateGoal = (request, response) => {
   const { target, user_id, name, balance, id } = request.body;
-  GoalService.updateGoal(target, user_id, name, balance)
+  GoalService.updateGoal(target, user_id, name, balance, id)
     .then(data => {
       response.status(200).json({
         msg: `Successfully updated goal.`,
