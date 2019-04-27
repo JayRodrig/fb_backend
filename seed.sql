@@ -19,7 +19,7 @@ CREATE TABLE statements
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
-  user_id INT REFERENCES users(id),
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -28,7 +28,7 @@ CREATE TABLE goals
   id SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
   target INT NOT NULL,
-  user_id INT REFERENCES users(id),
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
   balance INT,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -39,7 +39,7 @@ CREATE TABLE expenses
   name VARCHAR NOT NULL,
   fixed boolean,
   amount INT,
-  user_id INT REFERENCES users(id),
-  statement_id INT REFERENCES statements(id),
+  user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  statement_id INT REFERENCES statements(id) ON DELETE CASCADE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
