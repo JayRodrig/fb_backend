@@ -13,7 +13,7 @@ GoalService.createGoal = (target, user_id, name, balance, expires_at) => {
   });
 };
 GoalService.getGoal = id => {
-  const sql = `SELECT * FROM goals JOIN users ON users.id = goals.user_id WHERE users.id=$[id]`;
+  const sql = `SELECT goals.*, users.first_name, users.last_name, users.avatar_url, users.created_at AS user_createdAt, users.income FROM goals JOIN users ON users.id = goals.user_id WHERE users.id=$[id]`;
   return getDbConn(dbAddr).any(sql, { id });
 };
 GoalService.updateGoal = (target, user_id, name, balance, id) => {
