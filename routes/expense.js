@@ -1,5 +1,23 @@
 // NPM MODULES
 const express = require("express");
+<<<<<<< HEAD
+
+// ROUTE FUNCTIONS
+const createExpense = (request, response) => {
+  const { fixed, amount, user_id, statement_id } = request.body;
+};
+
+const getExpense = (request, response) => {
+  const { id } = request.params;
+};
+
+const updateExpense = (request, response) => {
+  const { fixed, amount, user_id, statement_id } = request.body;
+};
+
+const deleteExpense = (request, response) => {
+  const { id } = request.body;
+=======
 
 // LOCAL MODULES
 const {ExpenseService,} = require('../services/expense');
@@ -90,6 +108,7 @@ const deleteExpense = (request, response) => {
           e,
         });
       });
+>>>>>>> master
 };
 
 // FUNCTION THAT RETURNS ROUTER
@@ -98,7 +117,10 @@ const ExpenseRouter = () => {
 
   router.post("/", createExpense);
   router.get("/:id", getExpense);
+<<<<<<< HEAD
+=======
   router.get("/all/:user_id/:statement_id", getAllExpenses);
+>>>>>>> master
   router.put("/", updateExpense);
   router.delete("/", deleteExpense);
 

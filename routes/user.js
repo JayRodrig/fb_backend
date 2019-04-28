@@ -41,7 +41,11 @@ const getUser = (request, response) => {
   UserService.getUser(id)
     .then(data => {
       response.status(200).json({
+<<<<<<< HEAD
+        msg: `Successfully retrieved data from user #${user_id}`,
+=======
         msg: `Successfully retrieved data from user #${id}`,
+>>>>>>> master
         data
       });
     })
@@ -52,6 +56,9 @@ const getUser = (request, response) => {
       });
     });
 };
+<<<<<<< HEAD
+
+=======
 const getUserByEmail = (request,response)=>{
   const {email} = req.params;
   UserService.getUserByEmail(email)
@@ -69,6 +76,7 @@ const getUserByEmail = (request,response)=>{
     })
   
 }
+>>>>>>> master
 const updateUser = (request, response) => {
   const {
     first_name,
@@ -85,8 +93,12 @@ const updateUser = (request, response) => {
     email,
     firebase_token,
     avatar_url,
+<<<<<<< HEAD
+    income
+=======
     income,
     id
+>>>>>>> master
   )
     .then(data => {
       response.status(200).json({
@@ -125,7 +137,10 @@ const UserRouter = () => {
 
   router.post("/", createUser);
   router.get("/:id", getUser);
+<<<<<<< HEAD
+=======
   router.get("/email/:email",getUserByEmail);
+>>>>>>> master
   router.put("/", updateUser);
   router.delete("/", deleteUser);
 

@@ -19,7 +19,10 @@ CREATE TABLE statements
 (
   id SERIAL PRIMARY KEY,
   name VARCHAR NOT NULL,
+<<<<<<< HEAD
+=======
   budget INT NOT NULL,
+>>>>>>> master
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
@@ -31,6 +34,7 @@ CREATE TABLE goals
   target INT NOT NULL,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   balance INT,
+  expired_at VARCHAR NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

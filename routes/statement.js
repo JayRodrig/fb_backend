@@ -1,5 +1,24 @@
 // NPM MODULES
 const express = require("express");
+<<<<<<< HEAD
+
+// ROUTE FUNCTIONS
+const createStatement = (request, response) => {
+  const { name, user_id } = request.body;
+};
+
+const getStatement = (request, response) => {
+  const { id } = request.params;
+};
+
+const updateStatement = (request, response) => {
+  const { name, user_id } = request.body;
+};
+
+const deleteStatement = (request, response) => {
+  const { id } = request.body;
+};
+=======
 
 // LOCAL MODULES
 const {StatementService,} = require('../services/statement');
@@ -107,6 +126,7 @@ const deleteStatement = (request, response) => {
             });
         });
 }
+>>>>>>> master
 
 // FUNCTION THAT RETURNS ROUTER
 const StatementRouter = () => {
@@ -114,8 +134,11 @@ const StatementRouter = () => {
 
   router.post("/", createStatement);
   router.get("/:id", getStatement);
+<<<<<<< HEAD
+=======
   router.get("/all/:id", getUserStatements);
   router.get("/detailed/:id", getStatementsAndExpenses);
+>>>>>>> master
   router.put("/", updateStatement);
   router.delete("/", deleteStatement);
 
