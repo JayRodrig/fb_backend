@@ -21,6 +21,7 @@ CREATE TABLE statements
   name VARCHAR NOT NULL,
   budget INT NOT NULL,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
+  saved VARCHAR NOT NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

@@ -6,8 +6,8 @@ const { StatementService } = require("../services/statement");
 
 // ROUTE FUNCTIONS
 const createStatement = (request, response) => {
-  const { name, budget, user_id } = request.body;
-  StatementService.createStatement(name, budget, user_id)
+  const { name, budget, user_id, saved } = request.body;
+  StatementService.createStatement(name, budget, user_id, saved)
     .then(data => {
       response.status(200).json({
         msg: `Successfully created statement.`,
@@ -75,8 +75,8 @@ const getStatementsAndExpenses = (request, response) => {
 };
 
 const updateStatement = (request, response) => {
-  const { name, budget, id } = request.body;
-  StatementService.updateStatement(name, id)
+  const { name, budget, id, saved } = request.body;
+  StatementService.updateStatement(name, budget, id, saved)
     .then(data => {
       response.status(200).json({
         msg: `Successfully updated statement.`,

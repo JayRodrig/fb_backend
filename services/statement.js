@@ -2,17 +2,17 @@ const { getDbConn } = require("./db");
 const { dbAddr } = require("./config");
 const StatementService = {};
 
-StatementService.createStatement = (name, budget, user_id) => {
-  const sql = `INSERT INTO statements(name, budget, user_id) VALUES($[name],$[budget],$[user_id]) RETURNING id`;
-  return getDbConn(dbAddr).one(sql, { name, budget, user_id });
+StatementService.createStatement = (name, budget, user_id, saved) => {
+  const sql = `INSERT INTO statements(name, budget, user_id, saved) VALUES($[name],$[budget],$[user_id], $[saved]) RETURNING id`;
+  return getDbConn(dbAddr).one(sql, { name, budget, user_id, saved });
 };
 StatementService.getStatement = id => {
   const sql = `SELECT * FROM statements WHERE id=$[id]`;
   return getDbConn(dbAddr).one(sql, { id });
 };
-StatementService.updateStatement = (name, id) => {
-  const sql = `UPDATE statements SET name=$[name] WHERE id=$[id] RETURNING id`;
-  return getDbConn(dbAddr).one(sql, { name, id });
+StatementService.updateStatement = (name, budget, id, saved) => {
+  const sql = `UPDATE statements SET name=$[name], budget=$[budget], id=$[id], saved=$[saved] WHERE id=$[id] RETURNING id`;
+  return getDbConn(dbAddr).one(sql, { name, budget, id, saved });
 };
 StatementService.deleteStatement = id => {
   const sql = `DELETE from statements WHERE id=$[id]`;
