@@ -2,9 +2,9 @@ const { getDbConn } = require("./db");
 const { dbAddr } = require("./config");
 const StatementService = {};
 
-StatementService.createStatement = (name, user_id) => {
-  const sql = `INSERT INTO statements(name,user_id) VALUES($[name],$[user_id]) RETURNING id`;
-  return getDbConn(dbAddr).one(sql, { name, user_id });
+StatementService.createStatement = (name, budget, user_id) => {
+  const sql = `INSERT INTO statements(name, budget, user_id) VALUES($[name],$[budget],$[user_id]) RETURNING id`;
+  return getDbConn(dbAddr).one(sql, { name, budget, user_id });
 };
 StatementService.getStatement = id => {
   const sql = `SELECT * FROM statements WHERE id=$[id]`;
