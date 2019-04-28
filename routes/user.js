@@ -54,7 +54,7 @@ const getUser = (request, response) => {
 };
 const getUserByEmail = (request,response)=>{
   const {email} = req.params;
-  UserService.getUserByEmail(email).getUserByEmail
+  UserService.getUserByEmail(email)
   .then(data=>{
     response.status(200).json({
       msg: `Successfully retreived data for email ${email}`,
