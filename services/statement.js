@@ -20,7 +20,7 @@ StatementService.deleteStatement = id => {
 };
 
 StatementService.getUserStatements = id => {
-  const sql = `SELECT statements.*,users.first_name, users.last_name FROM statements JOIN users ON users.id=$[id]`;
+  const sql = `SELECT statements.*,users.first_name, users.last_name FROM statements JOIN users ON statements.user_id=users.id WHERE statements.user_id=$[id]`;
   return getDbConn(dbAddr).any(sql, { id });
 };
 
