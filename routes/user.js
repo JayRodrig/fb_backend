@@ -125,6 +125,7 @@ const UserRouter = () => {
 
   router.post("/", createUser);
   router.get("/:id", getUser);
+  router.get("/email/:email");
   router.put("/", updateUser);
   router.delete("/", deleteUser);
 
