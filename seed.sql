@@ -30,6 +30,7 @@ CREATE TABLE goals
   target INT NOT NULL,
   user_id INT REFERENCES users(id) ON DELETE CASCADE,
   balance INT,
+  expired_at VARCHAR NULL,
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
