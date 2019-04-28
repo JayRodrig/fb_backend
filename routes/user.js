@@ -52,7 +52,23 @@ const getUser = (request, response) => {
       });
     });
 };
-
+const getUserByEmail = (request,response)=>{
+  const {email} = req.params;
+  UserService.getUserByEmail(email)
+  .then(data=>{
+    response.status(200).json({
+      msg: `Successfully retreived data for email ${email}`,
+      data
+    })
+  })
+    .catch(e=>{
+      response.status(400).json({
+        msg:`Something went wrong`,
+        e
+      })
+    })
+  
+}
 const updateUser = (request, response) => {
   const {
     first_name,
@@ -109,6 +125,7 @@ const UserRouter = () => {
 
   router.post("/", createUser);
   router.get("/:id", getUser);
+  router.get("/email/:email",getUserByEmail);
   router.put("/", updateUser);
   router.delete("/", deleteUser);
 
