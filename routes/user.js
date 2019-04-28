@@ -53,7 +53,7 @@ const getUser = (request, response) => {
     });
 };
 const getUserByEmail = (request, response) => {
-  const { email } = req.params;
+  const { email } = request.params;
   UserService.getUserByEmail(email)
     .then(data => {
       response.status(200).json({
