@@ -51,6 +51,11 @@ UserService.updateUser = (
   });
 };
 
+ UserService.getUserByEmail = email => {
+   const sql= `SELECT * from users WHERE email=$[email]`;
+   return getDbConn(dbAddr).one(sql,{email});
+ }
+
 module.exports = {
   UserService
 };
