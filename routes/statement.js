@@ -41,11 +41,11 @@ const getStatement = (request, response) => {
 };
 
 const getUserStatements = (request, response) => {
-  const { id } = request.params;
-  StatementService.getUserStatements(id)
+  const { email } = request.params;
+  StatementService.getUserStatements(email)
     .then(data => {
       response.status(200).json({
-        msg: `Successfully retrieved all statements for user #${id}.`,
+        msg: `Successfully retrieved all statements for user ${email}}.`,
         data
       });
     })
@@ -58,8 +58,8 @@ const getUserStatements = (request, response) => {
 };
 
 const getStatementsAndExpenses = (request, response) => {
-  const { id } = request.params;
-  StatementService.getStatementsAndExpenses(id)
+  const { email } = request.params;
+  StatementService.getStatementsAndExpenses(email)
     .then(data => {
       response.status(200).json({
         msg: `Successfully retrieved statement and expense info.`,
@@ -114,8 +114,8 @@ const StatementRouter = () => {
 
   router.post("/", createStatement);
   router.get("/:id", getStatement);
-  router.get("/all/:id", getUserStatements);
-  router.get("/detailed/:id", getStatementsAndExpenses);
+  router.get("/all/:email", getUserStatements);
+  router.get("/detailed/:email", getStatementsAndExpenses);
   router.put("/", updateStatement);
   router.delete("/", deleteStatement);
 
